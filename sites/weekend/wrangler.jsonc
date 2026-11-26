@@ -1,0 +1,10 @@
+{
+  "name": "weekend-93fyi",
+  "account_id": "f1ccbe18fa0f60f84f0ab66ac4f6855a",
+  "compatibility_date": "2026-10-01",
+  // Static-only Worker. custom_domain makes Cloudflare create the DNS record.
+  "assets": { "directory": "./public", "html_handling": "auto-trailing-slash" },
+  "routes": [{ "pattern": "weekend.93.fyi", "custom_domain": true }],
+  "workers_dev": false,
+  "preview_urls": false
+}

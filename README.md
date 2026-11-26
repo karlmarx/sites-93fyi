@@ -14,6 +14,7 @@ Repo secret `CLOUDFLARE_API_TOKEN`: a scoped API token (not the Global API Key) 
 
 ## Sites
 - `seaworld` -> seaworld.93.fyi: editable Thanksgiving park day plan (Nov 26, 2026).
+- `weekend` -> weekend.93.fyi: editable Orlando weekend plan (Nov 27 to 29, 2026).
 
 ## Sites are public by default
 Your Cloudflare Zero Trust has a wildcard Access app ("93.fyi Subdomains") that puts a login in front of every *.93.fyi subdomain. After each deploy, `scripts/ensure-public.sh` creates a separate Access app for the site's exact hostname with a **Bypass / Everyone** policy, so that site opens with no login. The more specific hostname wins over the wildcard, and the wildcard app and other hostnames are never touched. If the hostname already has its own Access app, it is left alone.

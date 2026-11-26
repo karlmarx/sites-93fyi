@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#241a6b">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Ccircle cx=%2716%27 cy=%2716%27 r=%2716%27 fill=%27%235b3fd6%27/%3E%3Cpath d=%27M5 22c5-12 9-12 11-4s6 8 11-6v12H5z%27 fill=%27%23fff%27/%3E%3C/svg%3E">
+<title>Orlando weekend: Busch Gardens, Universal, dog pickup</title>
+<style>
+:root{
+  --bg:#eef3f8;--bg2:#e3ecf5;--card:#ffffff;--ink:#0f1c2a;--muted:#4f6275;--line:#d5e0eb;
+  --u:#5b3fd6;--u-soft:#efeafe;--sw:#0a8f86;--sw-soft:#e2f6f3;--bg-g:#2f8a3a;--bg-g-soft:#e5f4e6;--pk:#d9622b;--pk-soft:#fdeee5;--tr:#56687a;--tr-soft:#eaeff4;
+  --accent:#0b4f8a;--warn:#d9822b;--done:#97a5b3;
+  --shadow:0 1px 2px rgba(15,28,42,.06),0 6px 18px rgba(15,28,42,.07);
+  --shadow-lg:0 2px 4px rgba(15,28,42,.08),0 14px 34px rgba(15,28,42,.12);
+  --r:18px;
+}
+@media (prefers-color-scheme:dark){:root{
+  --bg:#0a1119;--bg2:#0e1824;--card:#131f2c;--ink:#ecf2f8;--muted:#a3b4c5;--line:#233243;
+  --u:#a38dff;--u-soft:#211b3d;--sw:#3fd0c2;--sw-soft:#0f2d2c;--bg-g:#6fd07a;--bg-g-soft:#13291a;--pk:#ff9a5c;--pk-soft:#33200f;--tr:#9fb2c4;--tr-soft:#1a2634;--accent:#6cb6f2;--warn:#f3a54a;--done:#5f6d7b;
+  --shadow:0 1px 2px rgba(0,0,0,.4),0 6px 18px rgba(0,0,0,.35);--shadow-lg:0 2px 4px rgba(0,0,0,.5),0 14px 34px rgba(0,0,0,.45);
+}}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:64px}
+body{margin:0;font:16px/1.5 ui-rounded,-apple-system,BlinkMacSystemFont,"SF Pro Rounded","Segoe UI",Roboto,sans-serif;
+  background:linear-gradient(180deg,var(--bg) 0%,var(--bg2) 100%) fixed;color:var(--ink);
+  -webkit-font-smoothing:antialiased;padding-bottom:env(safe-area-inset-bottom)}
+header{position:relative;overflow:hidden;color:#fff;padding:28px 20px 58px;
+  background:radial-gradient(120% 140% at 85% -10%,#ffb36b 0%,rgba(255,179,107,0) 42%),
+             radial-gradient(90% 120% at 0% 0%,#3a7bd5 0%,rgba(58,123,213,0) 60%),
+             linear-gradient(135deg,#241a6b 0%,#3b2a9e 45%,#2f8a3a 100%)}
+header::before{content:"";position:absolute;right:-40px;top:-40px;width:180px;height:180px;border-radius:50%;
+  background:radial-gradient(circle,rgba(255,236,190,.55) 0%,rgba(255,236,190,0) 70%)}
+header .wave{position:absolute;left:0;right:0;bottom:-1px;width:100%;height:42px;display:block}
+header .wave path{fill:var(--bg)}
+header .inner{position:relative;max-width:720px;margin:0 auto}
+header h1{margin:0;font-size:30px;line-height:1.1;letter-spacing:-.02em;font-weight:800;text-shadow:0 2px 12px rgba(0,0,0,.2)}
+header p{margin:8px 0 0;opacity:.95;font-size:15px;max-width:34em}
+#now{display:inline-block;margin-top:12px;padding:6px 12px;border-radius:999px;font-weight:700;font-size:14px;
+  background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.35);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+#now:empty{display:none}
+nav{position:sticky;top:0;z-index:5;display:flex;gap:8px;padding:10px 14px;overflow-x:auto;scrollbar-width:none;
+  background:color-mix(in srgb,var(--bg) 82%,transparent);backdrop-filter:saturate(1.6) blur(14px);-webkit-backdrop-filter:saturate(1.6) blur(14px);
+  border-bottom:1px solid color-mix(in srgb,var(--line) 70%,transparent)}
+nav::-webkit-scrollbar{display:none}
+nav a{flex:0 0 auto;padding:8px 15px;border-radius:999px;background:var(--card);border:1px solid var(--line);color:var(--ink);
+  text-decoration:none;font-size:14px;font-weight:650;box-shadow:var(--shadow);transition:transform .15s,background .15s}
+nav a:active{transform:scale(.96)}
+main{max-width:720px;margin:0 auto;padding:6px 14px 8px}
+section{margin:22px 0 30px}
+h2{display:flex;align-items:center;gap:10px;font-size:13px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:0 0 12px}
+h2::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,var(--line),transparent)}
+.card{position:relative;background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:16px 18px;margin-bottom:12px;box-shadow:var(--shadow)}
+.card>.title{font-size:17px;font-weight:750;letter-spacing:-.01em;margin-bottom:6px}
+.card p{margin:8px 0 0}
+.kv{display:grid;grid-template-columns:minmax(96px,auto) 1fr;gap:10px 14px;font-size:15px;margin-top:4px}
+.kv b{font-weight:700;color:var(--muted);font-size:13px;text-transform:uppercase;letter-spacing:.04em;padding-top:2px}
+@media (max-width:420px){.kv{grid-template-columns:1fr;gap:2px}.kv span{margin-bottom:8px}}
+.note{color:var(--muted);font-size:13px;margin-top:10px!important;padding-top:10px;border-top:1px dashed var(--line)}
+.warn{color:var(--warn)}
+ul.tight{margin:6px 0 0;padding:0;list-style:none;display:grid;gap:8px}
+ul.tight li{position:relative;padding-left:20px}
+ul.tight li::before{content:"";position:absolute;left:4px;top:.62em;width:7px;height:7px;border-radius:50%;background:var(--sw)}
+
+a{color:var(--accent);font-weight:650;text-decoration-thickness:2px;text-underline-offset:3px}
+.card a[target]{display:inline-flex;align-items:center;gap:6px;margin:4px 0;padding:9px 14px;border-radius:12px;background:var(--bg);border:1px solid var(--line);text-decoration:none}
+.toolbar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px}
+button{font:inherit;font-weight:650;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:12px;padding:9px 14px;cursor:pointer;box-shadow:var(--shadow);transition:transform .12s}
+button:active{transform:scale(.96)}
+button.primary{background:linear-gradient(135deg,#0b5d8f,#0a8f86);color:#fff;border-color:transparent}
+button.small{padding:3px 8px;font-size:12px;border-radius:8px;box-shadow:none;background:var(--bg)}
+.plan-sec>.note{border-top:none;padding-top:0}
+ol.plan{list-style:none;margin:0;padding:0 0 0 18px;position:relative}
+ol.plan::before{content:"";position:absolute;left:7px;top:14px;bottom:14px;width:3px;border-radius:3px;
+  background:var(--line)}
+.item{position:relative;display:grid;grid-template-columns:auto 1fr auto;grid-template-areas:"chk time ctrls" "chk body ctrls";
+  column-gap:12px;row-gap:2px;align-items:start;background:var(--card);border:1px solid var(--line);border-radius:var(--r);
+  padding:13px 12px 13px 14px;margin:0 0 10px 12px;box-shadow:var(--shadow);transition:box-shadow .2s,transform .2s,opacity .2s;cursor:pointer}
+.item::before{content:"";position:absolute;left:-23px;top:18px;width:13px;height:13px;border-radius:50%;background:var(--card);border:3px solid var(--u);box-shadow:0 0 0 3px var(--bg)}
+.item.sw::before{border-color:var(--sw)}
+.item::after{content:"";position:absolute;left:0;top:14px;bottom:14px;width:4px;border-radius:0 4px 4px 0;background:var(--u)}
+.item.sw::after{background:var(--sw)}
+.item .chk{grid-area:chk}
+.item .time{grid-area:time}
+.item .body{grid-area:body}
+.item .ctrls{grid-area:ctrls}
+.time{display:inline-block;justify-self:start;font-weight:800;font-size:13px;letter-spacing:.02em;font-variant-numeric:tabular-nums;
+  color:var(--u);background:var(--u-soft);padding:3px 9px;border-radius:999px}
+.item.sw .time{color:var(--sw);background:var(--sw-soft)}
+.body{min-width:0}
+.title{font-weight:750;font-size:16.5px;letter-spacing:-.01em;line-height:1.3;margin-top:3px}
+.detail{color:var(--muted);font-size:14px;white-space:pre-wrap;margin-top:3px}
+.item.done{opacity:.5;box-shadow:none}
+.item.done .title{text-decoration:line-through;text-decoration-thickness:2px}
+.item.done::before{background:var(--done);border-color:var(--done)}
+.item.dragging{opacity:.4;transform:scale(.98)}
+.item.now{box-shadow:0 0 0 2px var(--warn),var(--shadow-lg);transform:translateY(-1px)}
+.item.now::before{border-color:var(--warn);background:var(--warn);animation:pulse 2s ease-out infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 3px var(--bg),0 0 0 3px rgba(217,130,43,.55)}100%{box-shadow:0 0 0 3px var(--bg),0 0 0 14px rgba(217,130,43,0)}}
+@media (prefers-reduced-motion:reduce){.item.now::before{animation:none}html{scroll-behavior:auto}}
+.ctrls{display:flex;flex-direction:column;align-items:center;gap:4px}
+.handle{cursor:grab;touch-action:none;user-select:none;font-size:18px;line-height:1;color:var(--muted);padding:2px 4px}
+.chk{appearance:none;-webkit-appearance:none;width:24px;height:24px;margin:2px 0 0;border-radius:8px;border:2px solid var(--line);background:var(--bg);cursor:pointer;display:grid;place-content:center;transition:background .15s,border-color .15s}
+.chk::after{content:"";width:6px;height:11px;border:solid #fff;border-width:0 3px 3px 0;transform:rotate(45deg) translate(-1px,-1px) scale(0);transition:transform .15s}
+.chk:checked{background:var(--sw);border-color:var(--sw)}
+.chk:checked::after{transform:rotate(45deg) translate(-1px,-1px) scale(1)}
+dialog{border:none;border-radius:22px;padding:0;width:min(520px,94vw);background:var(--card);color:var(--ink);box-shadow:var(--shadow-lg)}
+dialog::backdrop{background:rgba(6,16,28,.5);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px)}
+dialog form{padding:20px;display:grid;gap:12px}
+label{font-size:13px;font-weight:700;color:var(--muted);display:grid;gap:6px;text-transform:uppercase;letter-spacing:.04em}
+input,textarea,select{font:inherit;font-size:16px;text-transform:none;letter-spacing:normal;font-weight:500;padding:11px 12px;border-radius:12px;border:1px solid var(--line);background:var(--bg);color:var(--ink);width:100%}
+input:focus,textarea:focus,select:focus{outline:2px solid var(--sw);outline-offset:1px}
+textarea{min-height:96px}
+.row{display:flex;gap:8px;justify-content:flex-end;flex-wrap:wrap;margin-top:4px}
+.danger{color:#c0392b}
+footer{max-width:720px;margin:0 auto;padding:8px 14px 36px;color:var(--muted);font-size:13px;text-align:center}
+
+.item.bg::before{border-color:var(--bg-g)}.item.bg::after{background:var(--bg-g)}.item.bg .time{color:var(--bg-g);background:var(--bg-g-soft)}
+.item.pk::before{border-color:var(--pk)}.item.pk::after{background:var(--pk)}.item.pk .time{color:var(--pk);background:var(--pk-soft)}
+.item.tr::before{border-color:var(--tr)}.item.tr::after{background:var(--tr)}.item.tr .time{color:var(--tr);background:var(--tr-soft)}
+.tabs{display:flex;gap:8px;margin:0 0 14px}
+.tabs button{flex:1;padding:10px 6px;border-radius:14px;line-height:1.2}
+.tabs button small{display:block;font-weight:600;font-size:12px;color:var(--muted)}
+.tabs button[aria-selected=true]{background:linear-gradient(135deg,#3b2a9e,#5b3fd6);color:#fff;border-color:transparent}
+.tabs button[aria-selected=true] small{color:rgba(255,255,255,.85)}
+.daytag{display:inline-block;font-size:12px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-bottom:4px}
+.key{display:flex;flex-wrap:wrap;gap:6px 12px;font-size:13px;color:var(--muted);margin:2px 0 12px}
+.key span::before{content:"";display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:5px;vertical-align:0}
+.key .k-u::before{background:var(--u)}.key .k-bg::before{background:var(--bg-g)}.key .k-pk::before{background:var(--pk)}.key .k-tr::before{background:var(--tr)}
+</style>
+</head>
+<body>
+<header>
+  <div class="inner">
+  <h1>Orlando weekend</h1>
+  <p>Fri Nov 27 to Sun Nov 29, 2026. Karl and Brian. Coasters Friday, Universal with Express Saturday and Sunday, dog pickup at 5 PM Sunday.</p>
+  <p id="now"></p>
+  </div>
+  <svg class="wave" viewBox="0 0 1440 80" preserveAspectRatio="none" aria-hidden="true"><path d="M0,48 C240,88 480,8 720,40 C960,72 1200,24 1440,44 L1440,80 L0,80 Z"/></svg>
+</header>
+<nav>
+  <a href="#plan-sec">Plan</a>
+  <a href="#hours">Hours</a>
+  <a href="#express">Express</a>
+  <a href="#stays">Hotels</a>
+  <a href="#friday">Friday options</a>
+  <a href="#logistics">Logistics</a>
+</nav>
+<main>
+
+<section id="plan-sec" class="plan-sec">
+  <h2>The plan</h2>
+  <div class="tabs" role="tablist">
+    <button role="tab" data-day="fri">Fri<small>Nov 27</small></button>
+    <button role="tab" data-day="sat">Sat<small>Nov 28</small></button>
+    <button role="tab" data-day="sun">Sun<small>Nov 29</small></button>
+  </div>
+  <div class="key"><span class="k-u">Universal</span><span class="k-bg">Busch Gardens</span><span class="k-pk">Pickleball and dog</span><span class="k-tr">Travel and hotel</span></div>
+  <div class="toolbar">
+    <button class="primary" id="add">+ Add stop</button>
+    <button id="sort">Sort by time</button>
+    <button id="reset">Reset this day</button>
+  </div>
+  <p class="note">Tap a stop to edit it. Drag the handle (or use the arrows) to move it. Tick the box when done. Changes save on this phone only.</p>
+  <ol id="plan" class="plan"></ol>
+</section>
+
+<section id="hours">
+  <h2>Park hours</h2>
+  <div class="card">
+    <span class="daytag">Fri Nov 27</span>
+    <div class="kv">
+      <b>Busch Gardens Tampa</b><span>10:00 AM to 10:00 PM. Christmas Town runs all day, food cabins from 4 PM.</span>
+      <b>Islands of Adventure</b><span>9:00 AM to 9:00 PM</span>
+      <b>Universal Studios</b><span>9:00 AM to 8:00 PM</span>
+      <b>Epic Universe</b><span>10:00 AM to 9:00 PM</span>
+    </div>
+  </div>
+  <div class="card">
+    <span class="daytag">Sat Nov 28</span>
+    <div class="kv">
+      <b>Islands of Adventure</b><span>9:00 AM to 9:00 PM. Early entry 8:00 AM (see below).</span>
+      <b>Universal Studios</b><span>9:00 AM to 8:00 PM. No early entry.</span>
+    </div>
+  </div>
+  <div class="card">
+    <span class="daytag">Sun Nov 29</span>
+    <div class="kv">
+      <b>Islands of Adventure</b><span>9:00 AM to 7:00 PM. Early entry 8:00 AM (see below).</span>
+      <b>Universal Studios</b><span>10:00 AM to 7:00 PM. No early entry.</span>
+    </div>
+  </div>
+  <div class="card">
+    <div class="title">How sure are these?</div>
+    <ul class="tight">
+      <li><b>Busch Gardens:</b> from Busch Gardens' own hours calendar, read Nov 26.</li>
+      <li><b>Universal:</b> Universal's own calendar only showed one day when checked, so these come from TouringPlans, whose Nov 25 hours matched Universal's exactly. Other sites list Universal Studios at 10 AM, so check the Universal app the night before.</li>
+      <li><b>Early entry:</b> Universal's early entry page lists Islands of Adventure early entry through Nov 30, for Premier passholders on all dates and for Hard Rock guests. You didn't get in early on Thursday, so treat 8 AM as a bonus and 9 AM as the sure time.</li>
+    </ul>
+  </div>
+</section>
+
+<section id="express">
+  <h2>Express from Hard Rock</h2>
+  <div class="card">
+    <div class="title">Your room keys are your Express passes</div>
+    <ul class="tight">
+      <li><b>Where:</b> Universal Studios and Islands of Adventure only. Not Epic Universe, not Volcano Bay.</li>
+      <li><b>When:</b> Universal's Hard Rock page says from when the keys are issued until the parks close on check-out day. So Saturday morning through Sunday close, for both of you.</li>
+      <li><b>Not during early entry:</b> Express works in regular park hours only.</li>
+      <li><b>No Express line:</b> Hagrid's and Pteranodon Flyers. Do Hagrid's at 8 AM early entry.</li>
+      <li><b>Express works:</b> VelociCoaster, Hulk, Spider-Man, Kong, Forbidden Journey, Gringotts, Hogwarts Express (your 2-park passes cover it), Mummy, Rip Ride Rockit and most others.</li>
+    </ul>
+    <p class="note">Express rules from Universal's Express Pass page and your Hard Rock check-in email. Get your keys early: Universal staff say you can finish check-in early and pick up keys before the room is ready.</p>
+  </div>
+</section>
+
+<section id="stays">
+  <h2>Hotels and bookings</h2>
+  <div class="card">
+    <div class="title">Hyatt Place I-Drive</div>
+    <div class="kv">
+      <b>Check-out</b><span>Sat Nov 28 by 12:00 PM (plan leaves at 7:00 AM)</span>
+      <b>Address</b><span>8741 International Dr</span>
+    </div>
+  </div>
+  <div class="card">
+    <div class="title">Hard Rock Hotel, Universal</div>
+    <div class="kv">
+      <b>Stay</b><span>Sat Nov 28 to Sun Nov 29, 2 adults, Annual Passholder rate</span>
+      <b>Check-in</b><span>4:00 PM for the room. Do online check-in tonight, then pick up keys at the desk on arrival.</span>
+      <b>Check-out</b><span>Sun Nov 29 by 11:00 AM</span>
+      <b>Parking</b><span>Your confirmation lists self parking at $36 a night.</span>
+      <b>Perks</b><span>Express Unlimited at both Universal parks, early entry, walk to the parks.</span>
+    </div>
+  </div>
+  <div class="card">
+    <div class="title">Pickle X glow open play</div>
+    <div class="kv">
+      <b>When</b><span>Fri Nov 27, 8:30 to 10:00 PM (booked for Karl)</span>
+      <b>Where</b><span>6100 Hanging Moss Rd, Ste 500, Orlando</span>
+    </div>
+  </div>
+  <div class="card">
+    <div class="title">Dog pickup: Universal Dog Care Orlando</div>
+    <div class="kv">
+      <b>When</b><span>Sun Nov 29, 5:00 PM</span>
+      <b>Where</b><span>7200 Ferrara Ave, Orlando, about 10 min from Universal</span>
+      <b>Late</b><span>$20 per hour late. Text them at (407) 480-9669 if you're running behind.</span>
+    </div>
+  </div>
+</section>
+
+<section id="friday">
+  <h2>Friday options</h2>
+  <div class="card">
+    <div class="title">Busch Gardens Tampa (in the plan)</div>
+    <ul class="tight">
+      <li>Free with Karl's Platinum pass, parking included, no blockout on Nov 27.</li>
+      <li>Brian needs a guest ticket. Claim it tonight in the SeaWorld app (Member Portal, Rewards). Karl enters with him. If none is left, he needs a day ticket.</li>
+      <li>No coaster closures listed that week. Only the SkyRide is down.</li>
+      <li>About 1h30 each way to Tampa. Leave by 6:00 PM for glow play.</li>
+    </ul>
+  </div>
+  <div class="card">
+    <div class="title">Epic Universe instead (not bought)</div>
+    <ul class="tight">
+      <li>Not included in Premier passes and no hotel Express there.</li>
+      <li>Florida resident 1-day ticket for Nov 27 showed $160 plus tax each on Universal's store, Nov 26. Passholders get 15% off a 1-day add-on.</li>
+      <li>Open 10 AM to 9 PM (third-party hours). 25 min from Pickle X.</li>
+    </ul>
+  </div>
+</section>
+
+<section id="logistics">
+  <h2>Logistics</h2>
+  <div class="card">
+    <div class="title">Bring</div>
+    <ul class="tight">
+      <li>Both Premier passes (or the Universal app) and photo IDs</li>
+      <li>Karl's SeaWorld Platinum pass in the SeaWorld app, Brian's guest ticket</li>
+      <li>Paddle, court shoes and water for glow play</li>
+      <li>Dog's leash for Sunday pickup</li>
+    </ul>
+  </div>
+  <div class="card">
+    <div class="title">Drives</div>
+    <div class="kv">
+      <b>I-Drive to Busch Gardens</b><span>About 1h30</span>
+      <b>Busch Gardens to Pickle X</b><span>About 1h45 to 2h15 on a Friday evening</span>
+      <b>Pickle X to Hyatt</b><span>About 25 min</span>
+      <b>Hyatt to Hard Rock</b><span>About 15 min</span>
+      <b>Universal to dog care</b><span>About 10 min</span>
+      <b>Orlando to home</b><span>About 3h15</span>
+    </div>
+    <p class="note">Rough estimates. Check Google Maps for live traffic.</p>
+    <p><a href="https://www.google.com/maps/dir/?api=1&destination=Busch+Gardens+Tampa+Bay" target="_blank" rel="noopener">Directions to Busch Gardens</a><br>
+    <a href="https://www.google.com/maps/dir/?api=1&destination=6100+Hanging+Moss+Rd+Orlando+FL+32807" target="_blank" rel="noopener">Directions to Pickle X</a><br>
+    <a href="https://www.google.com/maps/dir/?api=1&destination=Hard+Rock+Hotel+Universal+Orlando" target="_blank" rel="noopener">Directions to Hard Rock Hotel</a><br>
+    <a href="https://www.google.com/maps/dir/?api=1&destination=7200+Ferrara+Ave+Orlando+FL+32819" target="_blank" rel="noopener">Directions to Universal Dog Care</a></p>
+  </div>
+  <div class="card">
+    <div class="title">Holiday extras at Universal</div>
+    <ul class="tight">
+      <li><b>Holiday Parade featuring Macy's:</b> Universal Studios, listed at 5:30 PM Sat and Sun by TouringPlans. Confirm in the Universal app.</li>
+      <li><b>Hogwarts castle holiday show:</b> Islands of Adventure, runs from dusk to park close each night (Universal's blog).</li>
+      <li><b>Grinchmas in Seuss Landing:</b> show times are in the Universal app.</li>
+    </ul>
+  </div>
+</section>
+</main>
+
+<footer>Made for Karl and Brian. Your edits stay on this device.</footer>
+
+<dialog id="dlg">
+  <form method="dialog" id="frm">
+    <label>Time <input id="f-time" type="time" required></label>
+    <label>Title <input id="f-title" required maxlength="120"></label>
+    <label>Details <textarea id="f-detail"></textarea></label>
+    <label>Type
+      <select id="f-park">
+        <option value="u">Universal</option>
+        <option value="bg">Busch Gardens</option>
+        <option value="pk">Pickleball and dog</option>
+        <option value="tr">Travel and hotel</option>
+      </select>
+    </label>
+    <div class="row">
+      <button type="button" class="danger" id="f-del">Delete</button>
+      <button type="button" id="f-cancel">Cancel</button>
+      <button type="submit" class="primary">Save</button>
+    </div>
+  </form>
+</dialog>
+<script>
+(function(){
+  var KEY = "wk93-2026-11-27-v1";
+  var DATES = {fri:"2026-11-27", sat:"2026-11-28", sun:"2026-11-29"};
+  var ORIGINAL = {
+    fri: [
+      {t:"08:00", p:"tr", title:"Breakfast at Hyatt Place", d:"Grab and go."},
+      {t:"08:30", p:"tr", title:"Leave for Busch Gardens Tampa", d:"About 1h30 on I-4 west. Karl's Platinum pass covers parking."},
+      {t:"10:00", p:"bg", title:"Busch Gardens opens", d:"Brian uses his guest ticket. Karl goes in with him."},
+      {t:"10:05", p:"bg", title:"Iron Gwazi", d:"Biggest line of the day, so ride it first."},
+      {t:"10:45", p:"bg", title:"Tigris, then Cheetah Hunt", d:""},
+      {t:"11:45", p:"bg", title:"Montu and Kumba", d:"Both in the same corner of the park."},
+      {t:"13:00", p:"bg", title:"Lunch", d:"Platinum gets a food discount."},
+      {t:"14:00", p:"bg", title:"SheiKra", d:"Then re-ride favorites."},
+      {t:"16:00", p:"bg", title:"Christmas Town", d:"Food cabins open at 4 PM. Lights come on around dusk."},
+      {t:"18:00", p:"tr", title:"Leave Busch Gardens", d:"About 1h45 to 2h15 to Pickle X on a Friday evening. Leave no later than this."},
+      {t:"20:00", p:"tr", title:"Quick dinner near Pickle X", d:"Or eat at Busch Gardens before leaving."},
+      {t:"20:30", p:"pk", title:"Glow open play at Pickle X", d:"Booked for Karl, 8:30 to 10:00 PM. 6100 Hanging Moss Rd, Ste 500."},
+      {t:"22:00", p:"tr", title:"Back to Hyatt", d:"About 25 min. Do Hard Rock online check-in tonight."}
+    ],
+    sat: [
+      {t:"06:45", p:"tr", title:"Check out of Hyatt Place", d:"Check-out is by 12 PM, but leave early to get Hard Rock keys before 8. Check out in the Hyatt app."},
+      {t:"07:15", p:"tr", title:"Drive to Hard Rock Hotel", d:"About 15 min. Self parking is $36 a night per your confirmation."},
+      {t:"07:30", p:"tr", title:"Pick up room keys at the front desk", d:"Keys are your Express and early entry. Room itself is ready at 4 PM. Leave bags with the bell desk or in the car."},
+      {t:"07:45", p:"u", title:"Walk to Islands of Adventure", d:"About 10 min from Hard Rock."},
+      {t:"08:00", p:"u", title:"Early entry: Hagrid's", d:"Hagrid's has no Express line, so do it now. If early entry isn't running, it opens at 9:00."},
+      {t:"09:00", p:"u", title:"Park opens: Express all day", d:"Hulk, Spider-Man, Kong, Forbidden Journey, VelociCoaster again."},
+      {t:"11:30", p:"u", title:"Lunch in Hogsmeade", d:"Three Broomsticks."},
+      {t:"12:30", p:"u", title:"Hogwarts Express to Universal Studios", d:"Your 2-park passes cover it. Express line works here too."},
+      {t:"13:00", p:"u", title:"Universal Studios with Express", d:"Gringotts, Revenge of the Mummy, Rip Ride Rockit, Transformers, Men in Black."},
+      {t:"16:00", p:"tr", title:"Room ready: break at Hard Rock", d:"Walk back, settle in, recharge phones."},
+      {t:"17:30", p:"u", title:"Holiday Parade featuring Macy's", d:"Universal Studios. Time from TouringPlans, confirm in the Universal app."},
+      {t:"18:30", p:"u", title:"Dinner at CityWalk", d:""},
+      {t:"19:30", p:"u", title:"Islands of Adventure at night", d:"Hogwarts castle holiday show runs from dusk to close. Night rides on VelociCoaster and Hulk with Express."},
+      {t:"21:00", p:"u", title:"Islands of Adventure closes", d:"Walk back to Hard Rock."}
+    ],
+    sun: [
+      {t:"07:30", p:"tr", title:"Breakfast, pack the car", d:"Check-out is by 11 AM. Do it in the morning so you don't have to come back."},
+      {t:"08:00", p:"u", title:"Early entry at Islands of Adventure", d:"Optional. Hagrid's again or anything you missed. Sleep in if you'd rather."},
+      {t:"09:00", p:"u", title:"Islands of Adventure with Express", d:"Re-ride favorites. Park closes at 7 PM today."},
+      {t:"10:30", p:"tr", title:"Check out of Hard Rock", d:"By 11 AM. Keys still work as Express until the parks close today."},
+      {t:"11:00", p:"u", title:"Universal Studios with Express", d:"Opens at 10 AM today. Anything you skipped Saturday."},
+      {t:"13:00", p:"u", title:"Lunch", d:""},
+      {t:"14:00", p:"u", title:"Last rides", d:"Leave time for the walk back to the car."},
+      {t:"16:15", p:"tr", title:"Walk back to Hard Rock and get the car", d:""},
+      {t:"16:45", p:"tr", title:"Drive to Universal Dog Care", d:"7200 Ferrara Ave, about 10 min."},
+      {t:"17:00", p:"pk", title:"Pick up the dog", d:"$20 per hour late. Text (407) 480-9669 if you're running behind."},
+      {t:"17:15", p:"tr", title:"Drive home", d:"About 3h15 to Fort Lauderdale."}
+    ]
+  };
+  var data = load();
+  var day = pickDay();
+  var list = document.getElementById("plan");
+  var dlg = document.getElementById("dlg");
+  var editing = -1;
+
+  function clone(a){ return JSON.parse(JSON.stringify(a)); }
+  function load(){
+    try { var s = JSON.parse(localStorage.getItem(KEY)); if (s && s.fri && s.sat && s.sun) return s; } catch(e){}
+    return clone(ORIGINAL);
+  }
+  function save(){ try { localStorage.setItem(KEY, JSON.stringify(data)); } catch(e){} }
+  function today(){ var d = new Date(); return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0"); }
+  function pickDay(){
+    var h = location.hash.slice(1); if (DATES[h]) return h;
+    var t = today(); for (var k in DATES) if (DATES[k] === t) return k;
+    return t > DATES.sun ? "sun" : "fri";
+  }
+  function fmt(t){ if(!t) return ""; var h = +t.slice(0,2), m = t.slice(3,5), ap = h >= 12 ? "PM" : "AM"; h = h % 12 || 12; return h + ":" + m + " " + ap; }
+  function esc(s){ return String(s||"").replace(/[&<>"']/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[c];}); }
+  function nowIndex(){
+    if (DATES[day] !== today()) return -1;
+    var d = new Date(), cur = String(d.getHours()).padStart(2,"0") + ":" + String(d.getMinutes()).padStart(2,"0");
+    var idx = -1; data[day].forEach(function(it,i){ if(!it.done && it.t <= cur) idx = i; }); return idx;
+  }
+  function render(){
+    var plan = data[day], ni = nowIndex();
+    Array.prototype.forEach.call(document.querySelectorAll(".tabs button"), function(b){ b.setAttribute("aria-selected", b.dataset.day === day ? "true" : "false"); });
+    list.innerHTML = "";
+    plan.forEach(function(it,i){
+      var li = document.createElement("li");
+      li.className = "item " + (it.p || "u") + (it.done ? " done" : "") + (i === ni ? " now" : "");
+      li.dataset.i = i;
+      li.innerHTML =
+        '<input type="checkbox" class="chk" aria-label="Done"' + (it.done ? " checked" : "") + '>' +
+        '<div class="time">' + esc(fmt(it.t)) + '</div>' +
+        '<div class="body"><div class="title">' + esc(it.title) + '</div>' +
+        (it.d ? '<div class="detail">' + esc(it.d) + '</div>' : '') + '</div>' +
+        '<div class="ctrls"><span class="handle" aria-label="Drag to move">&#9776;</span>' +
+        '<button class="small up" aria-label="Move up">&#9650;</button>' +
+        '<button class="small down" aria-label="Move down">&#9660;</button></div>';
+      list.appendChild(li);
+    });
+    var n = new Date();
+    document.getElementById("now").textContent = "Now " + n.toLocaleTimeString([], {hour:"numeric", minute:"2-digit"}) + (ni >= 0 ? ". Current stop is outlined." : "");
+  }
+  document.querySelector(".tabs").addEventListener("click", function(e){
+    var b = e.target.closest("button"); if (!b) return;
+    day = b.dataset.day; history.replaceState(null, "", "#" + day); render();
+  });
+  list.addEventListener("click", function(e){
+    var li = e.target.closest(".item"); if(!li) return;
+    var i = +li.dataset.i, plan = data[day];
+    if (e.target.classList.contains("chk")) { plan[i].done = e.target.checked; save(); render(); return; }
+    if (e.target.classList.contains("up")) { move(i, i-1); return; }
+    if (e.target.classList.contains("down")) { move(i, i+1); return; }
+    if (e.target.classList.contains("handle")) return;
+    openEdit(i);
+  });
+  function move(from, to){ var plan = data[day]; if (to < 0 || to >= plan.length) return; var it = plan.splice(from,1)[0]; plan.splice(to,0,it); save(); render(); }
+  var drag = null;
+  list.addEventListener("pointerdown", function(e){
+    if (!e.target.classList.contains("handle")) return;
+    var li = e.target.closest(".item"); e.preventDefault();
+    drag = {from:+li.dataset.i, el:li}; li.classList.add("dragging"); e.target.setPointerCapture(e.pointerId);
+  });
+  list.addEventListener("pointermove", function(e){
+    if (!drag) return;
+    var items = Array.prototype.slice.call(list.children);
+    var target = items.find(function(el){ var r = el.getBoundingClientRect(); return e.clientY >= r.top && e.clientY <= r.bottom; });
+    if (target && target !== drag.el) { var r = target.getBoundingClientRect(); if (e.clientY < r.top + r.height/2) list.insertBefore(drag.el, target); else list.insertBefore(drag.el, target.nextSibling); }
+  });
+  function endDrag(){
+    if (!drag) return;
+    var to = Array.prototype.indexOf.call(list.children, drag.el), from = drag.from; drag.el.classList.remove("dragging"); drag = null;
+    if (to !== from) { var plan = data[day]; var it = plan.splice(from,1)[0]; plan.splice(to,0,it); save(); }
+    render();
+  }
+  list.addEventListener("pointerup", endDrag);
+  list.addEventListener("pointercancel", endDrag);
+  function openEdit(i){
+    editing = i;
+    var it = i >= 0 ? data[day][i] : {t:"12:00", p:"u", title:"", d:""};
+    document.getElementById("f-time").value = it.t;
+    document.getElementById("f-title").value = it.title;
+    document.getElementById("f-detail").value = it.d || "";
+    document.getElementById("f-park").value = it.p || "u";
+    document.getElementById("f-del").style.visibility = i >= 0 ? "visible" : "hidden";
+    dlg.showModal();
+  }
+  document.getElementById("frm").addEventListener("submit", function(){
+    var it = {t:document.getElementById("f-time").value, title:document.getElementById("f-title").value.trim(), d:document.getElementById("f-detail").value.trim(), p:document.getElementById("f-park").value};
+    if (editing >= 0) { it.done = data[day][editing].done; data[day][editing] = it; } else { data[day].push(it); }
+    save(); render();
+  });
+  document.getElementById("f-cancel").onclick = function(){ dlg.close(); };
+  document.getElementById("f-del").onclick = function(){ if (editing >= 0 && confirm("Delete this stop?")) { data[day].splice(editing,1); save(); render(); } dlg.close(); };
+  document.getElementById("add").onclick = function(){ openEdit(-1); };
+  document.getElementById("sort").onclick = function(){ data[day].sort(function(a,b){ return a.t < b.t ? -1 : a.t > b.t ? 1 : 0; }); save(); render(); };
+  document.getElementById("reset").onclick = function(){ if (confirm("Reset this day to the original plan? Your edits for this day will be lost.")) { data[day] = clone(ORIGINAL[day]); save(); render(); } };
+  render();
+  setInterval(render, 60000);
+})();
+</script>
+</body>
+</html>
