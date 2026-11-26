@@ -185,9 +185,15 @@ footer{max-width:720px;margin:0 auto;padding:8px 14px 36px;color:var(--muted);fo
     <div class="kv">
       <b>Open</b><span>9:00 AM to 9:00 PM</span>
       <b>Christmas Celebration</b><span>Runs tonight. Holiday food booths open at 4:00 PM.</span>
-      <b>Blocked out today</b><span>Quick Queue, reserved show seats, animal up-close tours</span>
+      <b>Miracles (orcas, new)</b><span>7:30 PM, Orca Stadium. Best show of the day.</span>
+      <b>Orca Encounter</b><span>12:00 PM, 3:30 PM</span>
+      <b>Dolphin Adventures</b><span>1:00, 3:00, 5:00 PM</span>
+      <b>Clyde &amp; Seamore (sea lions)</b><span>2:00, 4:00, 5:30 PM</span>
+      <b>Winter Wonderland on Ice</b><span>6:30, 8:30 PM, Bayside Stadium</span>
+      <b>O Wondrous Night</b><span>4:30, 7:00 PM, Nautilus Theater</span>
+      <b>Fireworks</b><span>9:00 PM over the lake</span>
     </div>
-    <p class="note">Hours from SeaWorld's park hours page, read Nov 26. Check the SeaWorld app for show times.</p>
+    <p class="note">Show times from SeaWorld's daily schedule, read Nov 26 at 10:23 AM. Shows can change, so glance at the SeaWorld app.</p>
   </div>
 </section>
 
@@ -224,6 +230,15 @@ footer{max-width:720px;margin:0 auto;padding:8px 14px 36px;color:var(--muted);fo
 <section id="tickets">
   <h2>Tickets</h2>
   <div class="card">
+    <div class="title">Quick Queue Unlimited PLUS (bought today)</div>
+    <div class="kv">
+      <b>Unlimited</b><span>Mako, Kraken, Manta, Pipeline, Ice Breaker, Infinity Falls, Journey to Atlantis</span>
+      <b>Once each</b><span>Penguin Trek, Expedition Odyssey</span>
+      <b>Reserved seats</b><span>Once each at Orca Stadium, Dolphin Theater, Sea Lion &amp; Otter Stadium</span>
+    </div>
+    <p class="note">Reserved seats need you there 15 to 30 min early (the fine print says both). Skip them if a coaster loop is better. Front row may not be included.</p>
+  </div>
+  <div class="card">
     <div class="title">Universal: covered</div>
     <p>You both hold Premier passes, which include parking. Nothing to buy.</p>
   </div>
@@ -243,7 +258,7 @@ footer{max-width:720px;margin:0 auto;padding:8px 14px 36px;color:var(--muted);fo
       <li>Head straight to VelociCoaster at 9. Waits jump fast after opening on a holiday.</li>
       <li>Loose items go in the free lockers at VelociCoaster. Nothing loose on the ride.</li>
       <li>If VelociCoaster pauses for weather or a breakdown, go to Hagrid's and come back.</li>
-      <li>At SeaWorld, ride Mako and Pipeline before the 4 PM holiday crowd arrives.</li>
+      <li>With unlimited Quick Queue, reride your favorites. Mako and Ice Breaker after dark are worth it.</li>
     </ul>
   </div>
 </section>
@@ -272,7 +287,7 @@ footer{max-width:720px;margin:0 auto;padding:8px 14px 36px;color:var(--muted);fo
 
 <script>
 (function(){
-  var KEY = "sw93-plan-2026-11-26-v4";
+  var KEY = "sw93-plan-2026-11-26-v5";
   var ORIGINAL = [
     {t:"07:30", p:"u", title:"Breakfast at Hyatt Place", d:"Grab and go."},
     {t:"08:00", p:"u", title:"Leave the hotel", d:"Both Premier passes and photo IDs. About 15 min to Universal."},
@@ -281,14 +296,20 @@ footer{max-width:720px;margin:0 auto;padding:8px 14px 36px;color:var(--muted);fo
     {t:"09:00", p:"u", title:"VelociCoaster", d:"Go straight there at opening. Ride twice only if the wait is short. Free lockers at the entrance."},
     {t:"09:50", p:"u", title:"Leave Islands of Adventure", d:"Skip Hagrid's, Hulk and Spider-Man. Walk out through CityWalk to valet, 15 to 20 min."},
     {t:"10:10", p:"u", title:"Valet pickup, drive to SeaWorld", d:"Valet can take 10 to 20 min on a holiday. Then about 20 min on I-4 to SeaWorld."},
-    {t:"10:45", p:"sw", title:"Arrive at SeaWorld", d:"Platinum: preferred parking. Get Brian's guest ticket in the SeaWorld app or at a kiosk before the gate. Karl goes in with Brian."},
-    {t:"11:00", p:"sw", title:"Mako, Kraken, Pipeline", d:"Big coasters first. Ask at Mako about the Platinum free single-ride Quick Queue."},
-    {t:"12:30", p:"sw", title:"Manta and Ice Breaker", d:""},
-    {t:"13:30", p:"sw", title:"Lunch", d:"Platinum gets 15% off food."},
-    {t:"14:30", p:"sw", title:"Expedition Odyssey and Penguin Trek", d:"Or animal exhibits and a break."},
-    {t:"15:30", p:"sw", title:"Orca Encounter show", d:"Check the SeaWorld app for today's show times."},
-    {t:"16:00", p:"sw", title:"Christmas Celebration", d:"Holiday food booths open at 4:00 PM. Lights after dark."},
-    {t:"21:00", p:"sw", title:"Park closes, head back to the hotel", d:"About 10 to 15 min drive."}
+    {t:"10:15", p:"sw", title:"Arrive at SeaWorld", d:"Platinum: preferred parking. Get Brian's guest ticket in the SeaWorld app or at a kiosk before the gate. Karl goes in with Brian."},
+    {t:"10:30", p:"sw", title:"Manta, then Kraken", d:"Quick Queue on both. Ride Manta near the entrance, then walk over to Kraken."},
+    {t:"11:10", p:"sw", title:"Mako twice", d:"Unlimited Quick Queue. Ride it back to back."},
+    {t:"11:45", p:"sw", title:"Journey to Atlantis (optional)", d:"Quick Queue. Opens at 11. You will get wet, so skip it if it's cold."},
+    {t:"12:15", p:"sw", title:"Lunch", d:"Platinum gets 15% off food. Skips the 12:00 Orca Encounter, since Miracles tonight is the better orca show."},
+    {t:"13:15", p:"sw", title:"Pipeline, then Ice Breaker twice", d:"Unlimited Quick Queue on both."},
+    {t:"14:00", p:"sw", title:"Expedition Odyssey and Penguin Trek", d:"One Quick Queue ride each, so use them now."},
+    {t:"15:00", p:"sw", title:"Coaster rerides", d:"Mako, Kraken, Manta again, whichever you liked best."},
+    {t:"16:00", p:"sw", title:"Clyde & Seamore sea lion show (optional)", d:"4:00 PM at Sea Lion & Otter Stadium. Reserved seat, arrive by 3:45. Skip if you'd rather ride."},
+    {t:"16:30", p:"sw", title:"Christmas Celebration and dinner", d:"Holiday food booths open at 4:00 PM. 15% off with Platinum."},
+    {t:"18:00", p:"sw", title:"Night coasters", d:"Mako, Ice Breaker and Pipeline after dark with Quick Queue."},
+    {t:"19:00", p:"sw", title:"Miracles orca show, reserved seats", d:"Show at 7:30 PM at Orca Stadium. Get there by 7:00 to claim reserved seats. Back this year after a long break."},
+    {t:"20:00", p:"sw", title:"Last rerides", d:"One more lap on your favorite. Sea of Trees on the lake at 8:00."},
+    {t:"21:00", p:"sw", title:"Fireworks, then head back", d:"Holiday Reflections fireworks at 9:00 PM over the lake. Hotel is about 10 to 15 min drive."},
   ];
   var plan = load();
   var list = document.getElementById("plan");
