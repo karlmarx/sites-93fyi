@@ -483,6 +483,7 @@ footer{max-width:720px;margin:0 auto;padding:8px 14px 36px;color:var(--muted);fo
   document.getElementById("add").onclick = function(){ openEdit(-1); };
   document.getElementById("sort").onclick = function(){ data[day].sort(function(a,b){ return a.t < b.t ? -1 : a.t > b.t ? 1 : 0; }); save(); render(); };
   document.getElementById("reset").onclick = function(){ if (confirm("Reset this day to the original plan? Your edits for this day will be lost.")) { data[day] = clone(ORIGINAL[day]); save(); render(); } };
+  window.addEventListener("hashchange", function(){ var h = location.hash.slice(1); if (DATES[h]) { day = h; render(); } });
   render();
   setInterval(render, 60000);
 })();
