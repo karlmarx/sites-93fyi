@@ -1,20 +1,50 @@
-name: Deploy to Cloudflare
+name: Deploy changed sites to Cloudflare
 on:
   push:
     branches: [main]
+    paths: ["sites/**"]
   workflow_dispatch:
+    inputs:
+      site:
+        description: "Site folder to deploy (blank = all)"
+        required: false
 concurrency:
   group: deploy
   cancel-in-progress: false
 jobs:
+  plan:
+    runs-on: ubuntu-latest
+    outputs:
+      sites: ${{ steps.pick.outputs.sites }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+      - id: pick
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            if [ -n "${{ inputs.site }}" ]; then list="${{ inputs.site }}"; else list=$(ls sites); fi
+          else
+            list=$(git diff --name-only HEAD^ HEAD -- sites | cut -d/ -f2 | sort -u)
+          fi
+          json=$(for s in $list; do [ -f "sites/$s/wrangler.jsonc" ] && echo "$s"; done | jq -R . | jq -sc .)
+          echo "sites=$json" >> "$GITHUB_OUTPUT"
+          echo "Deploying: $json"
   deploy:
+    needs: plan
+    if: needs.plan.outputs.sites != '[]'
     runs-on: ubuntu-latest
     permissions:
       contents: read
+    strategy:
+      fail-fast: false
+      matrix:
+        site: ${{ fromJson(needs.plan.outputs.sites) }}
     steps:
       - uses: actions/checkout@v4
       - uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           wranglerVersion: "4"
+          workingDirectory: sites/${{ matrix.site }}
           command: deploy
