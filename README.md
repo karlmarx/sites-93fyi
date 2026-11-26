@@ -10,17 +10,14 @@ One repo for small static sites on 93.fyi subdomains. Each folder in `sites/` be
 Redeploy one site by hand: Actions > "Deploy changed sites" > Run workflow, enter the folder name.
 
 ## One-time setup
-Repo secret `CLOUDFLARE_API_TOKEN` (same token as lt-pickleball, needs Workers Scripts edit and Workers Routes / DNS edit on the 93.fyi zone).
+Repo secret `CLOUDFLARE_API_TOKEN`: a scoped API token (not the Global API Key) from the Edit Cloudflare Workers template with the 93.fyi zone, plus Account > Access: Apps and Policies > Edit.
 
 ## Sites
 - `seaworld` -> seaworld.93.fyi: editable Thanksgiving park day plan (Nov 26, 2026).
 
-## Making a site public (no login)
+## Sites are public by default
+Your Cloudflare Zero Trust has a wildcard Access app ("93.fyi Subdomains") that puts a login in front of every *.93.fyi subdomain. After each deploy, `scripts/ensure-public.sh` creates a separate Access app for the site's exact hostname with a **Bypass / Everyone** policy, so that site opens with no login. The more specific hostname wins over the wildcard, and the wildcard app and other hostnames are never touched. If the hostname already has its own Access app, it is left alone.
 
-Your Cloudflare Zero Trust has an Access app ("93.fyi Subdomains") that puts a login in front of every *.93.fyi subdomain. To make one site public without touching that wildcard:
+To keep a site behind the login, add an empty `sites/<name>/.private` file before its first deploy.
 
-1. Cloudflare dashboard, Zero Trust, Access, Applications, Add an application, Self-hosted.
-2. Application domain: `<name>.93.fyi` (exact hostname, not a wildcard).
-3. Add a policy with Action **Bypass**, Include **Everyone**. Save.
-
-A more specific hostname wins over the wildcard, so only that site becomes public. The deploy token cannot do this; it needs Access permissions.
+The token needs one extra permission for this: Account > **Access: Apps and Policies** > **Edit**.
