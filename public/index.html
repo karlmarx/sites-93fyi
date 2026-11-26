@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#0b4f8a">
+<title>Thanksgiving park day: VelociCoaster then SeaWorld</title>
+<style>
+:root{--bg:#f4f7fb;--card:#fff;--ink:#14202b;--muted:#5b6b7a;--line:#dbe3ec;--accent:#0b4f8a;--accent2:#0f8a6b;--warn:#b25b00;--done:#9aa7b4}
+@media (prefers-color-scheme:dark){:root{--bg:#0d141b;--card:#16212c;--ink:#e8eef4;--muted:#9fb0c0;--line:#26333f;--accent:#5aa9ec;--accent2:#3fc79f;--warn:#f0a040;--done:#5d6b78}}
+*{box-sizing:border-box}
+body{margin:0;font:16px/1.45 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--ink);padding-bottom:env(safe-area-inset-bottom)}
+header{background:var(--accent);color:#fff;padding:18px 16px 14px}
+header h1{margin:0;font-size:21px}
+header p{margin:4px 0 0;opacity:.9;font-size:14px}
+#now{font-weight:600}
+nav{position:sticky;top:0;z-index:5;display:flex;gap:6px;padding:8px 12px;background:var(--bg);border-bottom:1px solid var(--line);overflow-x:auto}
+nav a{flex:0 0 auto;padding:6px 12px;border-radius:999px;background:var(--card);border:1px solid var(--line);color:var(--ink);text-decoration:none;font-size:14px}
+main{max-width:720px;margin:0 auto;padding:12px}
+section{margin:14px 0 22px}
+h2{font-size:18px;margin:0 0 10px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 14px;margin-bottom:10px}
+.kv{display:grid;grid-template-columns:auto 1fr;gap:4px 12px;font-size:15px}
+.kv b{white-space:nowrap}
+.note{color:var(--muted);font-size:13px}
+.warn{color:var(--warn)}
+.toolbar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px}
+button{font:inherit;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:10px;padding:8px 12px;cursor:pointer}
+button.primary{background:var(--accent);color:#fff;border-color:var(--accent)}
+button.small{padding:4px 9px;font-size:14px}
+ol#plan{list-style:none;margin:0;padding:0}
+.item{display:flex;gap:10px;align-items:flex-start;background:var(--card);border:1px solid var(--line);border-left:5px solid var(--accent);border-radius:12px;padding:10px 10px 10px 12px;margin-bottom:8px}
+.item.sw{border-left-color:var(--accent2)}
+.item.done{opacity:.55}
+.item.done .title{text-decoration:line-through}
+.item.dragging{opacity:.4}
+.item.now{box-shadow:0 0 0 2px var(--warn)}
+.time{font-weight:700;min-width:68px;font-variant-numeric:tabular-nums}
+.body{flex:1;min-width:0}
+.title{font-weight:600}
+.detail{color:var(--muted);font-size:14px;white-space:pre-wrap}
+.ctrls{display:flex;flex-direction:column;gap:4px}
+.handle{cursor:grab;touch-action:none;user-select:none;font-size:20px;line-height:1;color:var(--muted);padding:2px 4px}
+.chk{width:22px;height:22px;margin-top:2px}
+dialog{border:none;border-radius:16px;padding:0;width:min(520px,94vw);background:var(--card);color:var(--ink)}
+dialog::backdrop{background:rgba(0,0,0,.45)}
+dialog form{padding:16px;display:grid;gap:10px}
+label{font-size:14px;color:var(--muted);display:grid;gap:4px}
+input,textarea,select{font:inherit;padding:8px 10px;border-radius:10px;border:1px solid var(--line);background:var(--bg);color:var(--ink);width:100%}
+textarea{min-height:90px}
+.row{display:flex;gap:8px;justify-content:flex-end;flex-wrap:wrap}
+.danger{color:#c0392b}
+a{color:var(--accent)}
+ul.tight{margin:6px 0 0;padding-left:20px}
+footer{max-width:720px;margin:0 auto;padding:0 12px 30px;color:var(--muted);font-size:13px}
+</style>
+</head>
+<body>
+<header>
+  <h1>Thanksgiving park day</h1>
+  <p>Thu Nov 26, 2026. Karl and Brian. VelociCoaster at early entry, then SeaWorld.</p>
+  <p id="now"></p>
+</header>
+<nav>
+  <a href="#plan-sec">Plan</a>
+  <a href="#eight">8 AM</a>
+  <a href="#hours">Hours</a>
+  <a href="#logistics">Logistics</a>
+  <a href="#tickets">Tickets</a>
+  <a href="#tips">Tips</a>
+</nav>
+<main>
+
+<section id="plan-sec">
+  <h2>Today's plan</h2>
+  <div class="toolbar">
+    <button class="primary" id="add">+ Add stop</button>
+    <button id="sort">Sort by time</button>
+    <button id="reset">Reset to original</button>
+  </div>
+  <p class="note">Tap a stop to edit it. Drag the handle (or use the arrows) to move it. Tick the box when done. Changes save on this phone only.</p>
+  <ol id="plan"></ol>
+</section>
+
+<section id="eight">
+  <h2>8 AM decisions</h2>
+  <div class="card">
+    <div class="title">VelociCoaster or Hagrid's first?</div>
+    <ul class="tight">
+      <li><b>VelociCoaster first (pick):</b> the ride you came for at its shortest line, riding together. Hagrid's line grows fast after, and it often opens late or breaks down.</li>
+      <li><b>Hagrid's first:</b> catches its shortest line of the day. If it opens late or stops, you lose early entry time. VelociCoaster later is long unless you split up for single rider.</li>
+      <li><b>Split option:</b> Hagrid's first, then VelociCoaster single rider.</li>
+    </ul>
+  </div>
+  <div class="card">
+    <div class="title">Phones and loose items for VelociCoaster</div>
+    <ul class="tight">
+      <li><b>VelociCoaster lockers (pick):</b> free, at the entrance, metal detector there for everyone. Short locker line at 8 AM.</li>
+      <li><b>Hulk lockers:</b> far side of the park, long walk each way, free time may run out and cost money.</li>
+      <li><b>Hagrid's lockers:</b> close, handy if you ride Hagrid's first, but you walk back before VelociCoaster. Same free-time limit.</li>
+      <li><b>Phones in the car:</b> fastest through the detector. No entry if passes are only in the app, no wait times, no mobile food, no photos. Car is 15 to 20 min away.</li>
+      <li><b>Middle option:</b> one phone plus pass cards and IDs, that one phone goes in the VelociCoaster locker.</li>
+    </ul>
+    <p class="note">Usual patterns at the park, not today's live lines.</p>
+  </div>
+</section>
+
+<section id="hours">
+  <h2>Hours today</h2>
+  <div class="card">
+    <div class="title">Islands of Adventure</div>
+    <div class="kv">
+      <b>Early entry</b><span>8:00 AM (Premier passholders, plus Universal hotel guests)</span>
+      <b>Open</b><span>9:00 AM to 8:00 PM</span>
+      <b>Early entry rides</b><span>VelociCoaster, Hagrid's, Forbidden Journey, Flight of the Hippogriff</span>
+    </div>
+    <p class="note">From Touring Plans and Orlando Informer, read Nov 26 at 6:20 AM. Confirm in the Universal app before you leave.</p>
+  </div>
+  <div class="card">
+    <div class="title">SeaWorld Orlando</div>
+    <div class="kv">
+      <b>Open</b><span>9:00 AM to 9:00 PM</span>
+      <b>Christmas Celebration</b><span>Runs tonight. Holiday food booths open at 4:00 PM.</span>
+      <b>Blocked out today</b><span>Quick Queue, reserved show seats, animal up-close tours</span>
+    </div>
+    <p class="note">Hours from SeaWorld's park hours page, read Nov 26. Check the SeaWorld app for show times.</p>
+  </div>
+</section>
+
+<section id="logistics">
+  <h2>Logistics</h2>
+  <div class="card">
+    <div class="title">Bring</div>
+    <ul class="tight">
+      <li>Both Universal Premier passes (or the Universal app) and photo IDs</li>
+      <li>SeaWorld tickets or pass in the SeaWorld app</li>
+      <li>Phone charger, sunscreen, a small bag for the VelociCoaster lockers</li>
+    </ul>
+  </div>
+  <div class="card">
+    <div class="title">Driving</div>
+    <div class="kv">
+      <b>Hotel to Universal</b><span>About 15 min</span>
+      <b>Universal to SeaWorld</b><span>About 20 min</span>
+      <b>SeaWorld to hotel</b><span>About 10 to 15 min</span>
+    </div>
+    <p class="note">Rough estimates. Check Google Maps for live traffic.</p>
+    <p><a href="https://www.google.com/maps/dir/?api=1&destination=Universal+Orlando+Resort+parking+garage" target="_blank" rel="noopener">Directions to Universal parking</a><br>
+    <a href="https://www.google.com/maps/dir/?api=1&destination=SeaWorld+Orlando" target="_blank" rel="noopener">Directions to SeaWorld</a></p>
+  </div>
+  <div class="card">
+    <div class="title">Parking</div>
+    <div class="kv">
+      <b>Universal</b><span>Included with Premier passes. Garage to the gate is a 15 to 20 min walk through CityWalk and security.</span>
+      <b>SeaWorld</b><span>About $35 general parking, free with a Silver or higher pass.</span>
+    </div>
+  </div>
+</section>
+
+<section id="tickets">
+  <h2>Tickets</h2>
+  <div class="card">
+    <div class="title">Universal: covered</div>
+    <p>You both hold Premier passes, which include early entry and parking. Nothing to buy.</p>
+  </div>
+  <div class="card">
+    <div class="title">SeaWorld: pick one (Black Friday prices)</div>
+    <div class="kv">
+      <b>2 day tickets</b><span>$123.98 plus parking. Today only.</span>
+      <b>2 Fun Cards</b><span>$209.98 plus parking. Unlimited SeaWorld through 2027.</span>
+      <b>Silver FL Parks + 1 ticket</b><span>$355.99. Free parking, adds Busch Gardens, Aquatica, Adventure Island for Karl.</span>
+    </div>
+    <p class="note">Prices before tax, from SeaWorld's limited-time offers page, read Nov 26. Day tickets are date-specific.</p>
+  </div>
+</section>
+
+<section id="tips">
+  <h2>Tips</h2>
+  <div class="card">
+    <ul class="tight">
+      <li>Head straight to VelociCoaster at 8. Waits jump fast once the park opens at 9 on a holiday.</li>
+      <li>Loose items go in the free lockers at VelociCoaster. Nothing loose on the ride.</li>
+      <li>If VelociCoaster pauses for weather or a breakdown, go to Hagrid's and come back.</li>
+      <li>At SeaWorld, ride Mako and Pipeline before the 4 PM holiday crowd arrives.</li>
+    </ul>
+  </div>
+</section>
+</main>
+
+<footer>Made for Karl and Brian. Your edits stay on this device.</footer>
+
+<dialog id="dlg">
+  <form method="dialog" id="frm">
+    <label>Time <input id="f-time" type="time" required></label>
+    <label>Title <input id="f-title" required maxlength="120"></label>
+    <label>Details <textarea id="f-detail"></textarea></label>
+    <label>Park
+      <select id="f-park">
+        <option value="u">Universal / travel</option>
+        <option value="sw">SeaWorld</option>
+      </select>
+    </label>
+    <div class="row">
+      <button type="button" class="danger" id="f-del">Delete</button>
+      <button type="button" id="f-cancel">Cancel</button>
+      <button type="submit" class="primary">Save</button>
+    </div>
+  </form>
+</dialog>
+
+<script>
+(function(){
+  var KEY = "sw93-plan-2026-11-26";
+  var ORIGINAL = [
+    {t:"07:00", p:"u", title:"Leave the hotel", d:"Both Premier passes and photo IDs. About 15 min to Universal parking."},
+    {t:"07:15", p:"u", title:"Park and walk to Islands of Adventure", d:"Walk through CityWalk and security, 15 to 20 min."},
+    {t:"07:40", p:"u", title:"Early entry line at the gate", d:"Premier passholders get in at 8:00 AM."},
+    {t:"08:00", p:"u", title:"VelociCoaster", d:"Go straight there. Ride twice if the wait is short. Free lockers at the entrance."},
+    {t:"08:40", p:"u", title:"Hagrid's or Forbidden Journey", d:"Still in early entry until 9:00 AM."},
+    {t:"09:15", p:"u", title:"Hulk and Spider-Man", d:"Park is open to everyone now. Expect longer lines."},
+    {t:"11:30", p:"u", title:"Leave Universal", d:"Walk back to the car and drive about 20 min to SeaWorld."},
+    {t:"12:30", p:"sw", title:"Arrive at SeaWorld", d:"Parking about $35 unless you have a Silver or higher pass."},
+    {t:"12:45", p:"sw", title:"Mako, Kraken, Pipeline", d:"Do the big coasters before the evening crowd."},
+    {t:"14:30", p:"sw", title:"Manta and Ice Breaker, then lunch", d:""},
+    {t:"15:30", p:"sw", title:"Orca Encounter show", d:"Check the SeaWorld app for today's show times."},
+    {t:"16:00", p:"sw", title:"Christmas Celebration", d:"Holiday food booths open at 4:00 PM. Lights after dark."},
+    {t:"21:00", p:"sw", title:"Park closes, head back to the hotel", d:"About 10 to 15 min drive."}
+  ];
+  var plan = load();
+  var list = document.getElementById("plan");
+  var dlg = document.getElementById("dlg");
+  var editing = -1;
+
+  function load(){
+    try { var s = JSON.parse(localStorage.getItem(KEY)); if (Array.isArray(s)) return s; } catch(e){}
+    return clone(ORIGINAL);
+  }
+  function clone(a){ return JSON.parse(JSON.stringify(a)); }
+  function save(){ try { localStorage.setItem(KEY, JSON.stringify(plan)); } catch(e){} }
+  function fmt(t){
+    if(!t) return "";
+    var h = +t.slice(0,2), m = t.slice(3,5), ap = h >= 12 ? "PM" : "AM";
+    h = h % 12 || 12; return h + ":" + m + " " + ap;
+  }
+  function nowIndex(){
+    var d = new Date(), cur = String(d.getHours()).padStart(2,"0") + ":" + String(d.getMinutes()).padStart(2,"0");
+    var idx = -1;
+    plan.forEach(function(it,i){ if(!it.done && it.t <= cur) idx = i; });
+    return idx;
+  }
+  function esc(s){ return String(s||"").replace(/[&<>"']/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[c];}); }
+
+  function render(){
+    var ni = nowIndex();
+    list.innerHTML = "";
+    plan.forEach(function(it,i){
+      var li = document.createElement("li");
+      li.className = "item" + (it.p === "sw" ? " sw" : "") + (it.done ? " done" : "") + (i === ni ? " now" : "");
+      li.dataset.i = i;
+      li.innerHTML =
+        '<input type="checkbox" class="chk" aria-label="Done"' + (it.done ? " checked" : "") + '>' +
+        '<div class="time">' + esc(fmt(it.t)) + '</div>' +
+        '<div class="body"><div class="title">' + esc(it.title) + '</div>' +
+        (it.d ? '<div class="detail">' + esc(it.d) + '</div>' : '') + '</div>' +
+        '<div class="ctrls"><span class="handle" aria-label="Drag to move">&#9776;</span>' +
+        '<button class="small up" aria-label="Move up">&#9650;</button>' +
+        '<button class="small down" aria-label="Move down">&#9660;</button></div>';
+      list.appendChild(li);
+    });
+    var n = new Date();
+    document.getElementById("now").textContent = "Now " + n.toLocaleTimeString([], {hour:"numeric", minute:"2-digit"}) + (ni >= 0 ? ". Current stop is outlined." : "");
+  }
+
+  list.addEventListener("click", function(e){
+    var li = e.target.closest(".item"); if(!li) return;
+    var i = +li.dataset.i;
+    if (e.target.classList.contains("chk")) { plan[i].done = e.target.checked; save(); render(); return; }
+    if (e.target.classList.contains("up")) { move(i, i-1); return; }
+    if (e.target.classList.contains("down")) { move(i, i+1); return; }
+    if (e.target.classList.contains("handle")) return;
+    openEdit(i);
+  });
+
+  function move(from, to){
+    if (to < 0 || to >= plan.length) return;
+    var it = plan.splice(from,1)[0]; plan.splice(to,0,it); save(); render();
+  }
+
+  // Pointer drag reorder (works with touch)
+  var drag = null;
+  list.addEventListener("pointerdown", function(e){
+    if (!e.target.classList.contains("handle")) return;
+    var li = e.target.closest(".item"); e.preventDefault();
+    drag = {from:+li.dataset.i, el:li}; li.classList.add("dragging");
+    e.target.setPointerCapture(e.pointerId);
+  });
+  list.addEventListener("pointermove", function(e){
+    if (!drag) return;
+    var items = Array.prototype.slice.call(list.children);
+    var target = items.find(function(el){ var r = el.getBoundingClientRect(); return e.clientY >= r.top && e.clientY <= r.bottom; });
+    if (target && target !== drag.el) {
+      var r = target.getBoundingClientRect();
+      if (e.clientY < r.top + r.height/2) list.insertBefore(drag.el, target); else list.insertBefore(drag.el, target.nextSibling);
+    }
+  });
+  function endDrag(){
+    if (!drag) return;
+    var to = Array.prototype.indexOf.call(list.children, drag.el);
+    var from = drag.from; drag.el.classList.remove("dragging"); drag = null;
+    if (to !== from) { var it = plan.splice(from,1)[0]; plan.splice(to,0,it); save(); }
+    render();
+  }
+  list.addEventListener("pointerup", endDrag);
+  list.addEventListener("pointercancel", endDrag);
+
+  function openEdit(i){
+    editing = i;
+    var it = i >= 0 ? plan[i] : {t:"12:00", p:"sw", title:"", d:""};
+    document.getElementById("f-time").value = it.t;
+    document.getElementById("f-title").value = it.title;
+    document.getElementById("f-detail").value = it.d || "";
+    document.getElementById("f-park").value = it.p || "u";
+    document.getElementById("f-del").style.visibility = i >= 0 ? "visible" : "hidden";
+    dlg.showModal();
+  }
+  document.getElementById("frm").addEventListener("submit", function(){
+    var it = {t:document.getElementById("f-time").value, title:document.getElementById("f-title").value.trim(),
+      d:document.getElementById("f-detail").value.trim(), p:document.getElementById("f-park").value};
+    if (editing >= 0) { it.done = plan[editing].done; plan[editing] = it; } else { plan.push(it); }
+    save(); render();
+  });
+  document.getElementById("f-cancel").onclick = function(){ dlg.close(); };
+  document.getElementById("f-del").onclick = function(){
+    if (editing >= 0 && confirm("Delete this stop?")) { plan.splice(editing,1); save(); render(); }
+    dlg.close();
+  };
+  document.getElementById("add").onclick = function(){ openEdit(-1); };
+  document.getElementById("sort").onclick = function(){ plan.sort(function(a,b){ return a.t < b.t ? -1 : a.t > b.t ? 1 : 0; }); save(); render(); };
+  document.getElementById("reset").onclick = function(){
+    if (confirm("Reset to the original plan? Your edits will be lost.")) { plan = clone(ORIGINAL); save(); render(); }
+  };
+  render();
+  setInterval(render, 60000);
+})();
+</script>
+</body>
+</html>
